@@ -31,7 +31,8 @@
 
 - (IBAction)onButtonTapped:(UIButton *)sender {
     sender.titleLabel.text = self.whichPlayerLabel.text;
-    
+            
+    }
     
 }
 
