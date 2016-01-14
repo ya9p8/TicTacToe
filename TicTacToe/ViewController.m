@@ -33,19 +33,19 @@
 {
     //sender.titleLabel.text = self.whichPlayerLabel.text;
     
-    [sender setTitleColor:[UIColor redColor] forState:UIControlStateFocused];
+    [sender setTitle:self.whichPlayerLabel.text forState: UIControlStateNormal];
     
-//    if  ([sender.titleLabel.text isEqual: @"X"])
-//    {
-//        sender.titleLabel.textColor = [UIColor blueColor];
-//        self.whichPlayerLabel.text = @"O";
-//    
-//    }
-//    else
-//    {
-//        sender.titleLabel.textColor = [UIColor redColor];
-//        self.whichPlayerLabel.text = @"X";
-//    }
+    if  ([sender.titleLabel.text isEqual: @"X"])
+    {
+        [sender.titleLabel setTextColor: [UIColor greenColor]];
+        self.whichPlayerLabel.text = @"O";
+    
+    }
+    else
+    {
+        [sender.titleLabel setTextColor: [UIColor greenColor]];
+        self.whichPlayerLabel.text = @"X";
+    }
     
 }
 
