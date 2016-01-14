@@ -29,10 +29,23 @@
     // Do any additional setup after loading the view, typically from a nib.
 }
 
--(NSString *) whoWon {
+- (IBAction)onButtonTapped:(UIButton *)sender {
+    sender.titleLabel.text = self.whichPlayerLabel.text;
+    
+}
+
+-(NSString *) whoWon
+{
     if()
         return @"X won!";
     else
         return @"O won!";
 }
+
+
+
+
+
+
+>>>>>>> fd7079cd84f2be2ea2454220330c52b1fc67e7f3
 @end
