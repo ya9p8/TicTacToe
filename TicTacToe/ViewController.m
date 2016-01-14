@@ -29,17 +29,23 @@
     // Do any additional setup after loading the view, typically from a nib.
 }
 
-- (IBAction)onButtonTapped:(UIButton *)sender {
-    sender.titleLabel.text = self.whichPlayerLabel.text;
-    if  ([sender.titleLabel.text isEqual: @"X"]) {
-        sender.titleLabel.textColor = [UIColor blueColor];
-        self.whichPlayerLabel.text = @"O";
+- (IBAction)onButtonTapped:(UIButton *)sender
+{
+    //sender.titleLabel.text = self.whichPlayerLabel.text;
     
-    }
-    else {
-        sender.titleLabel.textColor = [UIColor redColor];
-        self.whichPlayerLabel.text = @"X";
-    }
+    [sender setTitleColor:[UIColor redColor] forState:UIControlStateFocused];
+    
+//    if  ([sender.titleLabel.text isEqual: @"X"])
+//    {
+//        sender.titleLabel.textColor = [UIColor blueColor];
+//        self.whichPlayerLabel.text = @"O";
+//    
+//    }
+//    else
+//    {
+//        sender.titleLabel.textColor = [UIColor redColor];
+//        self.whichPlayerLabel.text = @"X";
+//    }
     
 }
 
