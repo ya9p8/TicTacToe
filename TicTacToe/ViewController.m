@@ -31,21 +31,26 @@
 
 - (IBAction)onButtonTapped:(UIButton *)sender {
     sender.titleLabel.text = self.whichPlayerLabel.text;
+    if  ([sender.titleLabel.text isEqual: @"X"]) {
+        sender.titleLabel.textColor = [UIColor blueColor];
+        self.whichPlayerLabel.text = @"O";
+    
+    }
+    else {
+        sender.titleLabel.textColor = [UIColor redColor];
+        self.whichPlayerLabel.text = @"X";
+    }
     
 }
 
--(NSString *) whoWon
-{
-    if()
-        return @"X won!";
-    else
-        return @"O won!";
-}
+//-(NSString *) whoWon
+//{
+//    if()
+//        return @"X won!";
+//    else
+//        return @"O won!";
+//}
 
 
 
-
-
-
->>>>>>> fd7079cd84f2be2ea2454220330c52b1fc67e7f3
 @end
