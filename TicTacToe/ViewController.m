@@ -50,18 +50,22 @@
     {
         [sender.titleLabel setTextColor: [UIColor greenColor]];
         self.whichPlayerLabel.text = @"X";
+        [sender setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
         [sender setEnabled:false];
     }
+    self.whichPlayerLabel.text = [self whoWon];
     
 }
 
-//-(NSString *) whoWon
-//{
-//    if()
-//        return @"X won!";
-//    else
-//        return @"O won!";
-//}
+-(NSString *) whoWon
+{
+    if([self.buttonOne.titleLabel.attributedText isEqual: self.buttonTwo.titleLabel.attributedText] && [self.buttonTwo.titleLabel.attributedText isEqual: self.buttonThree.titleLabel.attributedText])
+       
+       return @"X won!";
+    else
+        return @"O won!";
+    
+}
 
 
 
