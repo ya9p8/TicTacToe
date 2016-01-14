@@ -46,7 +46,7 @@
         
     
     }
-    else
+    else if ([self.whichPlayerLabel.text isEqual: @"O"])
     {
         [sender.titleLabel setTextColor: [UIColor greenColor]];
         self.whichPlayerLabel.text = @"X";
@@ -59,11 +59,11 @@
 
 -(NSString *) whoWon
 {
-    if([self.buttonOne.titleLabel.attributedText isEqual: self.buttonTwo.titleLabel.attributedText] && [self.buttonTwo.titleLabel.attributedText isEqual: self.buttonThree.titleLabel.attributedText])
+    if([self.buttonFour.titleLabel.attributedText isEqualToAttributedString:self.buttonFive.titleLabel.attributedText] && [self.buttonFour.titleLabel.attributedText isEqualToAttributedString: self.buttonSix.titleLabel.attributedText])
        
-       return @"X won!";
+       return @"X";
     else
-        return @"O won!";
+        return @"O";
     
 }
 
