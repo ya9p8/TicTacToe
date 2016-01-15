@@ -245,38 +245,58 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6lb-Gf-Cn3" userLabel="playerXImage">
-                                <rect key="frame" x="385" y="502" width="86" height="86"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tictactoex" translatesAutoresizingMaskIntoConstraints="NO" id="6lb-Gf-Cn3" userLabel="playerImage">
+                                <rect key="frame" x="306" y="502" width="86" height="86"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="86" id="YDs-cr-kh9"/>
                                     <constraint firstAttribute="height" constant="86" id="olQ-m0-KAo"/>
                                 </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="D4k-Xd-J5p" userLabel="playerOImage">
-                                <rect key="frame" x="234" y="502" width="86" height="86"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="86" id="Mie-Bn-BDd"/>
-                                    <constraint firstAttribute="height" constant="86" id="Yha-Fz-2J6"/>
-                                </constraints>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="yld-uY-ohb" firstAttribute="centerY" secondItem="fGh-Jn-f1C" secondAttribute="centerY" id="23B-n4-P8l"/>
+                            <constraint firstItem="Hbr-NV-cme" firstAttribute="top" secondItem="6lb-Gf-Cn3" secondAttribute="bottom" constant="12" id="Adb-P0-Pya"/>
+                            <constraint firstItem="6lb-Gf-Cn3" firstAttribute="top" secondItem="yld-uY-ohb" secondAttribute="bottom" constant="14" id="Axx-JZ-oIQ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="6lb-Gf-Cn3" secondAttribute="trailing" constant="188" id="OEB-oN-aRL"/>
                             <constraint firstItem="KOP-VL-DzP" firstAttribute="leading" secondItem="fGh-Jn-f1C" secondAttribute="leadingMargin" id="bmD-ST-VBl"/>
                             <constraint firstItem="KOP-VL-DzP" firstAttribute="trailing" secondItem="fGh-Jn-f1C" secondAttribute="trailingMargin" id="dxr-3E-rw8"/>
                             <constraint firstItem="KOP-VL-DzP" firstAttribute="top" secondItem="sWk-j7-5NF" secondAttribute="bottom" id="lQc-MR-fGz"/>
                             <constraint firstItem="yld-uY-ohb" firstAttribute="centerX" secondItem="fGh-Jn-f1C" secondAttribute="centerX" id="m4J-pS-NSH"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Adb-P0-Pya"/>
+                            </mask>
+                        </variation>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="csY-fY-QgD" appends="YES" id="bEV-01-xOq"/>
+                        </connections>
                     </view>
                     <connections>
-                        <outlet property="playerOImage" destination="D4k-Xd-J5p" id="Bku-CP-teu"/>
-                        <outlet property="playerXImage" destination="6lb-Gf-Cn3" id="kl4-Qa-IrG"/>
+                        <outlet property="gridPositionEight" destination="xfW-v4-2ni" id="bB3-Gu-e1o"/>
+                        <outlet property="gridPositionFive" destination="XIu-r8-7To" id="kRY-EU-EQ3"/>
+                        <outlet property="gridPositionFour" destination="Wng-UI-Bbl" id="Lwf-pY-SDL"/>
+                        <outlet property="gridPositionNine" destination="vtB-6s-uMo" id="Aux-Yd-syL"/>
+                        <outlet property="gridPositionOne" destination="I0T-WS-Z9d" id="P7s-gt-b4q"/>
+                        <outlet property="gridPositionSeven" destination="YPm-aa-Vjm" id="mZX-Tg-hXB"/>
+                        <outlet property="gridPositionSix" destination="meN-G8-ICC" id="IBd-zh-pNI"/>
+                        <outlet property="gridPositionTwo" destination="4cL-wC-Lc9" id="Oso-kW-0jv"/>
+                        <outlet property="playerImage" destination="6lb-Gf-Cn3" id="b2p-7A-QAM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b6c-zT-rBg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="csY-fY-QgD">
+                    <connections>
+                        <action selector="movePlayer:" destination="vD4-4m-CHw" id="ZUM-5j-c3g"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="288" y="1012"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="tictactoex" width="300" height="300"/>
+    </resources>
 </document>

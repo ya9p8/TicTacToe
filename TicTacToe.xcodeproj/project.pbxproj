@@ -63,11 +63,11 @@
 			children = (
 				DBB2A0431C482F7300009842 /* AppDelegate.h */,
 				DBB2A0441C482F7300009842 /* AppDelegate.m */,
+				DBB2A07D1C497F5D00009842 /* GameViewController.h */,
+				DBB2A07E1C497F5D00009842 /* GameViewController.m */,
 				DBB2A0461C482F7300009842 /* ViewController.h */,
 				DBB2A0471C482F7300009842 /* ViewController.m */,
 				DBB2A0491C482F7300009842 /* Main.storyboard */,
-				DBB2A07D1C497F5D00009842 /* GameViewController.h */,
-				DBB2A07E1C497F5D00009842 /* GameViewController.m */,
 				DBB2A04C1C482F7300009842 /* Assets.xcassets */,
 				DBB2A04E1C482F7300009842 /* LaunchScreen.storyboard */,
 				DBB2A0511C482F7300009842 /* Info.plist */,
