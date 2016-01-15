@@ -55,7 +55,7 @@
     self.playerTwoMoves = [NSMutableSet new]; // Initalizing O's move set.
     
     
-    // Seting winning combination sets
+     //Setting winning combination sets
     self.winningComboOne = [NSSet setWithArray:@[self.buttonOne.titleLabel.text, self.buttonTwo.titleLabel.text, self.buttonThree.titleLabel.text]];
     self.winningComboTwo = [NSSet setWithArray:@[self.buttonOne.titleLabel.text, self.buttonFour.titleLabel.text, self.buttonSeven.titleLabel.text ]];
     self.winningComboThree = [NSSet setWithArray:@[self.buttonThree.titleLabel.text, self.buttonFour.titleLabel.text, self.buttonFive.titleLabel.text ]];
@@ -103,15 +103,28 @@
 -(void) resetBoard {
     
     // Change buttons back to original text
-    self.buttonOne.titleLabel.text = @"1";
-    self.buttonTwo.titleLabel.text = @"2";
-    self.buttonThree.titleLabel.text = @"3";
-    self.buttonFour.titleLabel.text = @"4";
-    self.buttonFive.titleLabel.text = @"5";
-    self.buttonSix.titleLabel.text = @"6";
-    self.buttonSeven.titleLabel.text = @"7";
-    self.buttonEight.titleLabel.text = @"8";
-    self.buttonNine.titleLabel.text = @"9";
+    
+    [self.buttonOne setTitle:@"1" forState: UIControlStateNormal];
+    [self.buttonTwo setTitle:@"2" forState: UIControlStateNormal];
+    [self.buttonThree setTitle:@"3" forState: UIControlStateNormal];
+    [self.buttonFour setTitle:@"4" forState: UIControlStateNormal];
+    [self.buttonFive setTitle:@"5" forState: UIControlStateNormal];
+    [self.buttonSix setTitle:@"6" forState: UIControlStateNormal];
+    [self.buttonSeven setTitle:@"7" forState: UIControlStateNormal];
+    [self.buttonEight setTitle:@"8" forState: UIControlStateNormal];
+    [self.buttonNine setTitle:@"9" forState: UIControlStateNormal];
+    
+    //Change button color to original
+    [self.buttonOne setTitleColor:[UIColor colorWithRed:0.0 green:122.0/255.0 blue:1.0 alpha:1.0] forState:UIControlStateNormal];
+     [self.buttonTwo setTitleColor:[UIColor colorWithRed:0.0 green:122.0/255.0 blue:1.0 alpha:1.0] forState:UIControlStateNormal];
+     [self.buttonThree setTitleColor:[UIColor colorWithRed:0.0 green:122.0/255.0 blue:1.0 alpha:1.0] forState:UIControlStateNormal];
+     [self.buttonFour setTitleColor:[UIColor colorWithRed:0.0 green:122.0/255.0 blue:1.0 alpha:1.0] forState:UIControlStateNormal];
+     [self.buttonFive setTitleColor:[UIColor colorWithRed:0.0 green:122.0/255.0 blue:1.0 alpha:1.0] forState:UIControlStateNormal];
+     [self.buttonSix setTitleColor:[UIColor colorWithRed:0.0 green:122.0/255.0 blue:1.0 alpha:1.0] forState:UIControlStateNormal];
+     [self.buttonSeven setTitleColor:[UIColor colorWithRed:0.0 green:122.0/255.0 blue:1.0 alpha:1.0] forState:UIControlStateNormal];
+     [self.buttonEight setTitleColor:[UIColor colorWithRed:0.0 green:122.0/255.0 blue:1.0 alpha:1.0] forState:UIControlStateNormal];
+     [self.buttonNine setTitleColor:[UIColor colorWithRed:0.0 green:122.0/255.0 blue:1.0 alpha:1.0] forState:UIControlStateNormal];
+
     
     // Set first player to start
     self.whichPlayerLabel.text = @"X";
@@ -136,30 +149,28 @@
 
 -(NSString *) whoWon
 {
-    
-    
-    
-    //NSLog(@"Player Ones: moves: %@",self.playerOneMoves);
-    //NSLog(@"Player Twos: moves: %@",self.playerTwoMoves);
-    
-    //NSLog(@"Winning One Combo: %@", self.winningComboOne);
-    
-    
     // Compares moves of player one to winning combos if any winning combos is in playerOne's move set, he/she wins.
     if([self.winningComboOne isSubsetOfSet:self.playerOneMoves] || [self.winningComboTwo isSubsetOfSet:self.playerOneMoves] || [self.winningComboThree isSubsetOfSet:self.playerOneMoves] || [self.winningComboFour isSubsetOfSet:self.playerOneMoves] || [self.winningComboFive isSubsetOfSet:self.playerOneMoves] || [self.winningComboSix isSubsetOfSet:self.playerOneMoves] || [self.winningComboSeven isSubsetOfSet:self.playerOneMoves] || [self.winningComboEight isSubsetOfSet:self.playerTwoMoves])
     {
         self.winner = @"X won!";
         
         self.endGame = [UIAlertController alertControllerWithTitle:@"Game Over!" message:self.winner preferredStyle:UIAlertControllerStyleAlert];
-        self.playAgain = [UIAlertAction actionWithTitle:@"Play Again?" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        self.playAgain = [UIAlertAction actionWithTitle:@"Play Again?" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action)
+        {
             [self resetBoard];
         }];
         
-        self.cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil];
+        self.cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel  handler:^(UIAlertAction * _Nonnull action) {
+            exit(1);
+        }];
+       
         [self.endGame addAction:self.playAgain];
         [self.endGame addAction:self.cancel];
         
         [self presentViewController:self.endGame animated:true completion:nil];
+        
+        
+        
         return @"O";
     }
     // Compares moves of player one to winning combos if any winning combos is in playerTwo's move set, he/she wins.
@@ -168,7 +179,8 @@
         self.winner = @"O won!";
         
         self.endGame = [UIAlertController alertControllerWithTitle:@"Game Over!" message:self.winner preferredStyle:UIAlertControllerStyleAlert];
-        self.playAgain = [UIAlertAction actionWithTitle:@"Play Again?" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        self.playAgain = [UIAlertAction actionWithTitle:@"Play Again?" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action)
+        {
             [self resetBoard];
         }];
         self.cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil];

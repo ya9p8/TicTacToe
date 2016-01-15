@@ -13,6 +13,7 @@
 		DBB2A04B1C482F7300009842 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBB2A0491C482F7300009842 /* Main.storyboard */; };
 		DBB2A04D1C482F7300009842 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DBB2A04C1C482F7300009842 /* Assets.xcassets */; };
 		DBB2A0501C482F7300009842 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBB2A04E1C482F7300009842 /* LaunchScreen.storyboard */; };
+		DBB2A07F1C497F5D00009842 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DBB2A07E1C497F5D00009842 /* GameViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,8 @@
 		DBB2A04C1C482F7300009842 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DBB2A04F1C482F7300009842 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DBB2A0511C482F7300009842 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DBB2A07D1C497F5D00009842 /* GameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
+		DBB2A07E1C497F5D00009842 /* GameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +66,8 @@
 				DBB2A0461C482F7300009842 /* ViewController.h */,
 				DBB2A0471C482F7300009842 /* ViewController.m */,
 				DBB2A0491C482F7300009842 /* Main.storyboard */,
+				DBB2A07D1C497F5D00009842 /* GameViewController.h */,
+				DBB2A07E1C497F5D00009842 /* GameViewController.m */,
 				DBB2A04C1C482F7300009842 /* Assets.xcassets */,
 				DBB2A04E1C482F7300009842 /* LaunchScreen.storyboard */,
 				DBB2A0511C482F7300009842 /* Info.plist */,
@@ -150,6 +155,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DBB2A07F1C497F5D00009842 /* GameViewController.m in Sources */,
 				DBB2A0481C482F7300009842 /* ViewController.m in Sources */,
 				DBB2A0451C482F7300009842 /* AppDelegate.m in Sources */,
 				DBB2A0421C482F7300009842 /* main.m in Sources */,
@@ -299,6 +305,7 @@
 				DBB2A0561C482F7300009842 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
