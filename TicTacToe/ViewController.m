@@ -54,6 +54,8 @@
     self.playerOneMoves = [NSMutableSet new]; // Initalizing X's move set.
     self.playerTwoMoves = [NSMutableSet new]; // Initalizing O's move set.
     
+    //self.winningComboOne = [NSSet new];
+    
     
      //Setting winning combination sets
     self.winningComboOne = [NSSet setWithArray:@[self.buttonOne.titleLabel.text, self.buttonTwo.titleLabel.text, self.buttonThree.titleLabel.text]];

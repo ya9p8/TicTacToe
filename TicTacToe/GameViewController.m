@@ -7,6 +7,7 @@
 //
 
 #import "GameViewController.h"
+#import "ArtificialIntelligence.h"
 
 @interface GameViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *playerImage;
@@ -20,6 +21,8 @@
 @property (weak, nonatomic) IBOutlet UIImageView *gridPositionSeven;
 @property (weak, nonatomic) IBOutlet UIImageView *gridPositionEight;
 @property (weak, nonatomic) IBOutlet UIImageView *gridPositionNine;
+@property ArtificialIntelligence* aiPlayer;
+
 
 @end
 
@@ -28,7 +31,17 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    // Do any additional setup after loading the view
+    
+    self.gridPositions = @[self.gridPositionOne, self.gridPositionTwo, self.gridPositionThree, self.gridPositionFour, self.gridPositionFive, self.gridPositionSix, self.gridPositionSeven, self.gridPositionEight, self.gridPositionNine];
+
+
+    
+//    while(![self win])
+//    {
+//        [self playTurn];
+//    }
+    
     
 }
 
@@ -37,15 +50,62 @@
     self.originalPlayerPosition = self.playerImage.center;
 }
 
-- (IBAction)movePlayer:(UIPanGestureRecognizer *)sender
-{
-    CGPoint startingXPoint = [sender locationInView:self.view];
-    
-    self.playerImage.center = startingXPoint;
-        //NSLog(@"The point is: %f", self.playerXImage.center.x);
-    
-    //if
+
+
+
+-(void) resetBoard {
     
 }
+
+
+-(Player*) checkVictory
+{
+    BOOL victory;
+    Player* winner;
+    for(GridSpot* spot in self.gridPositions)
+    {
+        if(spot.image == self.playerImage.image || spot.image == self.aiPlayer.aiPlayer.image)
+        {
+            victory = YES;
+        }
+    }
+    
+    
+    return winner;
+}
+
+-(void)setGridSpotImage:(Player*)player:(GridSpot*)spot
+{
+    spot.image = player.image;
+}
+
+- (IBAction)movePlayer:(UIPanGestureRecognizer *)sender
+{
+    CGPoint playerOriginCoordinates = [sender locationInView:self.view];
+    self.playerImage.center = playerOriginCoordinates;
+    
+    // Check if the player has stopped moving/ selected a spot
+    if(sender.state == UIGestureRecognizerStateEnded)
+    {
+        // Loop thru the array of grid spots
+        for (UIImageView* gridSpot in self.gridPositions)
+        {
+            // Whichever spot the player stops at changes image of that spot.
+            if(CGRectContainsPoint(gridSpot.frame, playerOriginCoordinates))
+                // Set grid image to player image
+                gridSpot.image = self.playerImage.image;
+        }
+    }
+    
+    if (sender.state == UIGestureRecognizerStateEnded)
+    {
+        [UIView animateWithDuration:1.0f animations:^{
+            self.playerImage.center = self.originalPlayerPosition;
+            //self.playerImage.image = [UIImage imageNamed:@"tictactoeo"];
+            
+        }];
+    }
+}
+
 
 @end

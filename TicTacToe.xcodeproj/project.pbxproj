@@ -14,6 +14,10 @@
 		DBB2A04D1C482F7300009842 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DBB2A04C1C482F7300009842 /* Assets.xcassets */; };
 		DBB2A0501C482F7300009842 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBB2A04E1C482F7300009842 /* LaunchScreen.storyboard */; };
 		DBB2A07F1C497F5D00009842 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DBB2A07E1C497F5D00009842 /* GameViewController.m */; };
+		DBEE6DA51C4B01540090AD87 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DBEE6DA41C4B01540090AD87 /* WebViewController.m */; };
+		DBEE6DA81C4B3ECB0090AD87 /* ArtificialIntelligence.m in Sources */ = {isa = PBXBuildFile; fileRef = DBEE6DA71C4B3ECB0090AD87 /* ArtificialIntelligence.m */; };
+		DBEE6DAB1C4B40E10090AD87 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = DBEE6DAA1C4B40E10090AD87 /* Player.m */; };
+		DBEE6DAE1C4B4CBB0090AD87 /* GridSpot.m in Sources */ = {isa = PBXBuildFile; fileRef = DBEE6DAD1C4B4CBB0090AD87 /* GridSpot.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +33,14 @@
 		DBB2A0511C482F7300009842 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DBB2A07D1C497F5D00009842 /* GameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
 		DBB2A07E1C497F5D00009842 /* GameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
+		DBEE6DA31C4B01540090AD87 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
+		DBEE6DA41C4B01540090AD87 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
+		DBEE6DA61C4B3ECB0090AD87 /* ArtificialIntelligence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArtificialIntelligence.h; sourceTree = "<group>"; };
+		DBEE6DA71C4B3ECB0090AD87 /* ArtificialIntelligence.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArtificialIntelligence.m; sourceTree = "<group>"; };
+		DBEE6DA91C4B40E10090AD87 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
+		DBEE6DAA1C4B40E10090AD87 /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
+		DBEE6DAC1C4B4CBB0090AD87 /* GridSpot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GridSpot.h; sourceTree = "<group>"; };
+		DBEE6DAD1C4B4CBB0090AD87 /* GridSpot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridSpot.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,11 +75,19 @@
 			children = (
 				DBB2A0431C482F7300009842 /* AppDelegate.h */,
 				DBB2A0441C482F7300009842 /* AppDelegate.m */,
-				DBB2A07D1C497F5D00009842 /* GameViewController.h */,
-				DBB2A07E1C497F5D00009842 /* GameViewController.m */,
 				DBB2A0461C482F7300009842 /* ViewController.h */,
 				DBB2A0471C482F7300009842 /* ViewController.m */,
+				DBB2A07D1C497F5D00009842 /* GameViewController.h */,
+				DBB2A07E1C497F5D00009842 /* GameViewController.m */,
+				DBEE6DAC1C4B4CBB0090AD87 /* GridSpot.h */,
+				DBEE6DAD1C4B4CBB0090AD87 /* GridSpot.m */,
+				DBEE6DA61C4B3ECB0090AD87 /* ArtificialIntelligence.h */,
+				DBEE6DA71C4B3ECB0090AD87 /* ArtificialIntelligence.m */,
+				DBEE6DA91C4B40E10090AD87 /* Player.h */,
+				DBEE6DAA1C4B40E10090AD87 /* Player.m */,
 				DBB2A0491C482F7300009842 /* Main.storyboard */,
+				DBEE6DA31C4B01540090AD87 /* WebViewController.h */,
+				DBEE6DA41C4B01540090AD87 /* WebViewController.m */,
 				DBB2A04C1C482F7300009842 /* Assets.xcassets */,
 				DBB2A04E1C482F7300009842 /* LaunchScreen.storyboard */,
 				DBB2A0511C482F7300009842 /* Info.plist */,
@@ -155,9 +175,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DBEE6DA81C4B3ECB0090AD87 /* ArtificialIntelligence.m in Sources */,
+				DBEE6DAE1C4B4CBB0090AD87 /* GridSpot.m in Sources */,
 				DBB2A07F1C497F5D00009842 /* GameViewController.m in Sources */,
+				DBEE6DA51C4B01540090AD87 /* WebViewController.m in Sources */,
 				DBB2A0481C482F7300009842 /* ViewController.m in Sources */,
 				DBB2A0451C482F7300009842 /* AppDelegate.m in Sources */,
+				DBEE6DAB1C4B40E10090AD87 /* Player.m in Sources */,
 				DBB2A0421C482F7300009842 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

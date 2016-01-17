@@ -7,7 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GridSpot.h"
+#import "Player.h"
+
 
 @interface GameViewController : UIViewController
+@property NSArray<GridSpot *>* gridPositions;
+-(Player*) checkVictory;
+-(void)setGridSpotImage:(Player*)player:(GridSpot*)spot;
+
 
 @end
