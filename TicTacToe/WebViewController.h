@@ -6,8 +6,8 @@
 //  Copyright © 2016 Yemi Ajibola. All rights reserved.
 //
 
-#import "ViewController.h"
+#import <UIKit/UIKit.h>
 
-@interface WebViewController : ViewController
+@interface WebViewController : UIViewController
 
 @end

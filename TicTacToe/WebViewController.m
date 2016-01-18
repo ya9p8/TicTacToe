@@ -16,12 +16,13 @@
 
 @implementation WebViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
-    NSLog(@"I have loaded!");
+    //NSLog(@"I have loaded!");
     // Do any additional setup after loading the view.
     
-    [self loadURLWithString:@"en.wikipedia.org/wiki/Tic-tac-toe"];
+    [self loadURLWithString:@"http://en.wikipedia.org/wiki/Tic-tac-toe"];
 }
 
 

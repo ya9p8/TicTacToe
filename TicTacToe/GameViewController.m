@@ -7,21 +7,24 @@
 //
 
 #import "GameViewController.h"
-#import "ArtificialIntelligence.h"
+#import "Player.h"
+
 
 @interface GameViewController ()
-@property (weak, nonatomic) IBOutlet UIImageView *playerImage;
-@property CGPoint originalPlayerPosition;
-@property (weak, nonatomic) IBOutlet UIImageView *gridPositionOne;
-@property (weak, nonatomic) IBOutlet UIImageView *gridPositionTwo;
-@property (weak, nonatomic) IBOutlet UIImageView *gridPositionThree;
-@property (weak, nonatomic) IBOutlet UIImageView *gridPositionFour;
-@property (weak, nonatomic) IBOutlet UIImageView *gridPositionFive;
-@property (weak, nonatomic) IBOutlet UIImageView *gridPositionSix;
-@property (weak, nonatomic) IBOutlet UIImageView *gridPositionSeven;
-@property (weak, nonatomic) IBOutlet UIImageView *gridPositionEight;
-@property (weak, nonatomic) IBOutlet UIImageView *gridPositionNine;
-@property ArtificialIntelligence* aiPlayer;
+@property (weak, nonatomic) IBOutlet GridSpot *gridSpotOne;
+@property (weak, nonatomic) IBOutlet GridSpot *gridSpotTwo;
+@property (weak, nonatomic) IBOutlet GridSpot *gridSpotThree;
+@property (weak, nonatomic) IBOutlet GridSpot *gridSpotFour;
+@property (weak, nonatomic) IBOutlet GridSpot *gridSpotFive;
+@property (weak, nonatomic) IBOutlet GridSpot *gridSpotSix;
+@property (weak, nonatomic) IBOutlet GridSpot *gridSpotSeven;
+@property (weak, nonatomic) IBOutlet GridSpot *gridSpotEight;
+@property (weak, nonatomic) IBOutlet GridSpot *gridSpotNine;
+@property NSArray<GridSpot*>* board;
+@property (weak, nonatomic) IBOutlet Player *player;
+@property CGPoint originalCenter;
+
+
 
 
 @end
@@ -33,79 +36,53 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view
     
-    self.gridPositions = @[self.gridPositionOne, self.gridPositionTwo, self.gridPositionThree, self.gridPositionFour, self.gridPositionFive, self.gridPositionSix, self.gridPositionSeven, self.gridPositionEight, self.gridPositionNine];
-
-
-    
-//    while(![self win])
-//    {
-//        [self playTurn];
-//    }
-    
+    self.board = @[self.gridSpotOne, self.gridSpotTwo, self.gridSpotThree, self.gridSpotFour, self.gridSpotFive, self.gridSpotSix, self.gridSpotSeven, self.gridSpotEight, self.gridSpotNine];
     
 }
 
 -(void)viewDidAppear:(BOOL)animated
 {
-    self.originalPlayerPosition = self.playerImage.center;
+    self.originalCenter = self.player.center;
 }
 
-
-
-
--(void) resetBoard {
-    
-}
-
-
--(Player*) checkVictory
+-(void)setGridImage:(Player*)playerImage:(GridSpot*)spot
 {
-    BOOL victory;
-    Player* winner;
-    for(GridSpot* spot in self.gridPositions)
+    spot.image = playerImage.image;
+}
+
+- (IBAction)dragImage:(UIPanGestureRecognizer *)sender
+{
+    CGPoint originPoint = [sender locationInView:self.view];
+    //NSLog(@"Original  Point is: %@", NSStringFromCGPoint(originPoint) );
+    self.player.center = originPoint;
+    
+    //NSLog(@"The piece is at: %@ and grid piece coordinates are: %@",NSStringFromCGPoint(self.player.center), NSStringFromCGRect(self.gridSpotOne.frame));
+    
+     if(sender.state == UIGestureRecognizerStateEnded)
     {
-        if(spot.image == self.playerImage.image || spot.image == self.aiPlayer.aiPlayer.image)
-        {
-            victory = YES;
+            //NSLog(@"Hey I'm done moving!!");
+    
+            for(GridSpot* spot in self.board)
+            {
+                //NSLog(@"Looping thru array of gridspots.... Your patience is appreciated.");
+                if(CGRectContainsPoint(spot.frame, originPoint))
+                {
+                    //NSLog(@"I am in contact with a grid spot.");
+                    [self setGridImage:self.player:spot];
+    
+                    [UIView animateWithDuration:1.0f animations:^{
+                        self.player.center = self.originalCenter;
+                    }];
+                }
+            }
+        //NSLog(@"Sorry, couldn't find anything to attach to :(");
+            [UIView animateWithDuration:1.0f animations:^{
+                self.player.center = self.originalCenter;
+            }];
         }
-    }
-    
-    
-    return winner;
+
 }
 
--(void)setGridSpotImage:(Player*)player:(GridSpot*)spot
-{
-    spot.image = player.image;
-}
-
-- (IBAction)movePlayer:(UIPanGestureRecognizer *)sender
-{
-    CGPoint playerOriginCoordinates = [sender locationInView:self.view];
-    self.playerImage.center = playerOriginCoordinates;
-    
-    // Check if the player has stopped moving/ selected a spot
-    if(sender.state == UIGestureRecognizerStateEnded)
-    {
-        // Loop thru the array of grid spots
-        for (UIImageView* gridSpot in self.gridPositions)
-        {
-            // Whichever spot the player stops at changes image of that spot.
-            if(CGRectContainsPoint(gridSpot.frame, playerOriginCoordinates))
-                // Set grid image to player image
-                gridSpot.image = self.playerImage.image;
-        }
-    }
-    
-    if (sender.state == UIGestureRecognizerStateEnded)
-    {
-        [UIView animateWithDuration:1.0f animations:^{
-            self.playerImage.center = self.originalPlayerPosition;
-            //self.playerImage.image = [UIImage imageNamed:@"tictactoeo"];
-            
-        }];
-    }
-}
 
 
 @end

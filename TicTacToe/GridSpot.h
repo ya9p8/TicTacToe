@@ -9,9 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface GridSpot : UIImageView
-@property int score;
--(instancetype)init:(int) score;
--(instancetype)init;
-
 
 @end

@@ -18,17 +18,5 @@
 }
 */
 
-- (instancetype)init:(int) score
-{
-    self = [super init];
-    if (self) {
-        self.score = score;
-    }
-    return self;
-}
--(instancetype)init
-{
-    return self;
-}
 
 @end
